@@ -1,0 +1,524 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Praphull Kumar - Portfolio</title>
+    <style>
+        :root {
+            --lavender-light: #e6e6fa;
+            --lavender-medium: #9370db;
+            --lavender-dark: #483d8b;
+            --white: #ffffff;
+            --text-dark: #333333;
+            --text-light: #ffffff;
+        }
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+        
+        body {
+            background-color: var(--lavender-light);
+            color: var(--text-dark);
+            line-height: 1.6;
+        }
+        
+        header {
+            background-color: var(--lavender-dark);
+            color: var(--text-light);
+            padding: 2rem 0;
+            text-align: center;
+        }
+        
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 2rem;
+        }
+        
+        .hero {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            padding: 2rem 0;
+        }
+        
+        .hero img {
+            width: 150px;
+            height: 150px;
+            border-radius: 50%;
+            object-fit: cover;
+            border: 5px solid var(--white);
+            margin-bottom: 1rem;
+        }
+        
+        .hero h1 {
+            font-size: 2.5rem;
+            margin-bottom: 0.5rem;
+        }
+        
+        .hero p {
+            font-size: 1.2rem;
+            opacity: 0.9;
+        }
+        
+        .contact-info {
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+            gap: 1.5rem;
+            margin: 1rem 0;
+        }
+        
+        .contact-info a {
+            color: var(--text-light);
+            text-decoration: none;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            transition: all 0.3s ease;
+        }
+        
+        .contact-info a:hover {
+            color: var(--lavender-light);
+        }
+        
+        section {
+            padding: 2rem 0;
+        }
+        
+        .section-title {
+            font-size: 1.8rem;
+            color: var(--lavender-dark);
+            margin-bottom: 1.5rem;
+            padding-bottom: 0.5rem;
+            border-bottom: 2px solid var(--lavender-medium);
+        }
+        
+        .about {
+            background-color: var(--white);
+            padding: 3rem 0;
+        }
+        
+        .skills-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2rem;
+        }
+        
+        .skill-category {
+            background-color: var(--white);
+            border-radius: 8px;
+            padding: 1.5rem;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            transition: transform 0.3s ease;
+        }
+        
+        .skill-category:hover {
+            transform: translateY(-5px);
+        }
+        
+        .skill-category h3 {
+            color: var(--lavender-dark);
+            margin-bottom: 1rem;
+        }
+        
+        .skill-list {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.8rem;
+        }
+        
+        .skill-tag {
+            background-color: var(--lavender-medium);
+            color: var(--text-light);
+            padding: 0.5rem 1rem;
+            border-radius: 30px;
+            font-size: 0.9rem;
+        }
+        
+        .education-item, .project-item {
+            background-color: var(--white);
+            border-radius: 8px;
+            padding: 1.5rem;
+            margin-bottom: 1.5rem;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        }
+        
+        .education-item h3, .project-item h3 {
+            color: var(--lavender-dark);
+            margin-bottom: 0.5rem;
+        }
+        
+        .education-date, .project-tag {
+            display: inline-block;
+            background-color: var(--lavender-medium);
+            color: var(--text-light);
+            padding: 0.3rem 0.8rem;
+            border-radius: 30px;
+            font-size: 0.8rem;
+            margin-bottom: 0.8rem;
+        }
+        
+        .languages {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 1.5rem;
+        }
+        
+        .language-item {
+            background-color: var(--white);
+            border-radius: 8px;
+            padding: 1rem;
+            flex: 1;
+            min-width: 200px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        }
+        
+        .language-name {
+            font-weight: bold;
+            color: var(--lavender-dark);
+        }
+        
+        .hobbies-list {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 1rem;
+            justify-content: center;
+        }
+        
+        .hobby-item {
+            background-color: var(--white);
+            border-radius: 8px;
+            padding: 1rem;
+            text-align: center;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            flex: 1;
+            min-width: 150px;
+            max-width: 200px;
+            transition: transform 0.3s ease;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+        
+        .hobby-item:hover {
+            transform: scale(1.05);
+        }
+        
+        .hobby-icon {
+            margin-bottom: 0.5rem;
+            width: 48px;
+            height: 48px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+        
+        .hobby-icon svg {
+            width: 100%;
+            height: 100%;
+            color: var(--lavender-medium);
+        }
+        
+        .social-profiles {
+            background-color: var(--white);
+            padding: 2rem 0;
+        }
+        
+        .social-container {
+            display: flex;
+            justify-content: center;
+            gap: 2rem;
+            flex-wrap: wrap;
+        }
+        
+        .social-card {
+            background-color: var(--white);
+            border-radius: 8px;
+            padding: 1.5rem;
+            width: 300px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            transition: transform 0.3s ease;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            text-align: center;
+        }
+        
+        .social-card:hover {
+            transform: translateY(-5px);
+        }
+        
+        .social-logo {
+            width: 64px;
+            height: 64px;
+            margin-bottom: 1rem;
+        }
+        
+        .social-logo svg {
+            width: 100%;
+            height: 100%;
+            color: var(--lavender-medium);
+        }
+        
+        .social-card h3 {
+            color: var(--lavender-dark);
+            margin-bottom: 0.5rem;
+        }
+        
+        .social-card p {
+            margin-bottom: 1rem;
+            font-size: 0.9rem;
+            color: var(--text-dark);
+        }
+        
+        .social-button {
+            display: inline-block;
+            background-color: var(--lavender-medium);
+            color: var(--text-light);
+            padding: 0.5rem 1.5rem;
+            border-radius: 30px;
+            text-decoration: none;
+            transition: all 0.3s ease;
+            font-weight: 500;
+        }
+        
+        .social-button:hover {
+            background-color: var(--lavender-dark);
+            transform: translateY(-2px);
+        }
+        
+        footer {
+            background-color: var(--lavender-dark);
+            color: var(--text-light);
+            text-align: center;
+            padding: 2rem 0;
+            margin-top: 2rem;
+        }
+        
+        .social-links {
+            display: flex;
+            justify-content: center;
+            gap: 1.5rem;
+            margin: 1rem 0;
+        }
+        
+        .social-links a {
+            color: var(--text-light);
+            font-size: 1.5rem;
+            transition: all 0.3s ease;
+        }
+        
+        .social-links a:hover {
+            color: var(--lavender-light);
+            transform: translateY(-3px);
+        }
+        
+        @media (max-width: 768px) {
+            .hero h1 {
+                font-size: 2rem;
+            }
+            
+            .hero p {
+                font-size: 1rem;
+            }
+            
+            .skills-container {
+                grid-template-columns: 1fr;
+            }
+            
+            .social-card {
+                width: 100%;
+            }
+        }
+    </style>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+</head>
+<body>
+    <header>
+        <div class="container">
+            <div class="hero">
+                <a href="https://ibb.co/N6B8zjYk"><img src="https://i.ibb.co/WWJb1yKd/IMG-20241209-163040629.jpg" alt="IMG-20241209-163040629" /></a>
+                <h1>Praphull Kumar</h1>
+                <p>Computer Science Student | Developer</p>
+                <div class="contact-info">
+                    <a href="mailto:thisispraphullverma@gmail.com"><i class="fas fa-envelope"></i> thisispraphullverma@gmail.com</a>
+                    <a href="tel:+918603150768"><i class="fas fa-phone"></i> +91 8603150768</a>
+                    <a href="https://www.linkedin.com/in/praphullverma/" target="_blank"><i class="fab fa-linkedin"></i> LinkedIn</a>
+                    <a href="https://github.com/praphull-verma" target="_blank"><i class="fab fa-github"></i> GitHub</a>
+                </div>
+            </div>
+        </div>
+    </header>
+    
+    <section class="about">
+        <div class="container">
+            <h2 class="section-title">About Me</h2>
+            <p>Hardworking Computer Science student seeking employment. Bringing forth a motivated attitude and a variety of powerful skills. Committed to utilizing my skills to further the mission of a company. Patient-care oriented, bringing forth a compassionate and friendly attitude. Proficient in various platforms, languages like Java and Python.</p>
+        </div>
+    </section>
+    
+    <section>
+        <div class="container">
+            <h2 class="section-title">Skills</h2>
+            <div class="skills-container">
+                <div class="skill-category">
+                    <h3>Technical Skills</h3>
+                    <div class="skill-list">
+                        <span class="skill-tag">Java</span>
+                        <span class="skill-tag">Python</span>
+                        <span class="skill-tag">C</span>
+                        <span class="skill-tag">Linux</span>
+                        <span class="skill-tag">Git</span>
+                        <span class="skill-tag">DSA</span>
+                    </div>
+                </div>
+                <div class="skill-category">
+                    <h3>Soft Skills</h3>
+                    <div class="skill-list">
+                        <span class="skill-tag">Teamwork</span>
+                        <span class="skill-tag">Adaptability</span>
+                        <span class="skill-tag">Problem Solving</span>
+                        <span class="skill-tag">Fast Learner</span>
+                        <span class="skill-tag">Ability to Multitask</span>
+                        <span class="skill-tag">Communication</span>
+                        <span class="skill-tag">Time Management</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <section>
+        <div class="container">
+            <h2 class="section-title">Education</h2>
+            <div class="education-item">
+                <span class="education-date">Sep 2024 — Present</span>
+                <h3>Computer Science</h3>
+                <p>Pune District Education Association, College of Engineering, Manjari, Pune</p>
+                <p>Attending first year in Computer Science.</p>
+            </div>
+            <div class="education-item">
+                <span class="education-date">Mar 2021 — Mar 2023</span>
+                <h3>HSC</h3>
+                <p>T.P college Madhepura, Madhepura</p>
+                <p>Passed with Distinction.</p>
+            </div>
+        </div>
+    </section>
+    
+    <section>
+        <div class="container">
+            <h2 class="section-title">Projects & Contributions</h2>
+            <div class="project-item">
+                <span class="project-tag">Open-Source</span>
+                <h3>College-Code Library</h3>
+                <p>I created a personal College-Code Library, a well-organized collection of programming solutions and code snippets used throughout my semester. This library includes languages like C and Java. It served as a valuable resource for quick code referencing, reducing development time and improving code quality. Maintaining and expanding this library enhanced my problem-solving skills and coding proficiency, showcasing my commitment to continuous learning and efficient programming practices.</p>
+            </div>
+        </div>
+    </section>
+    
+    <section>
+        <div class="container">
+            <h2 class="section-title">Languages</h2>
+            <div class="languages">
+                <div class="language-item">
+                    <span class="language-name">English</span>
+                    <p>Very good command</p>
+                </div>
+                <div class="language-item">
+                    <span class="language-name">Hindi</span>
+                    <p>Native speaker</p>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <section>
+        <div class="container">
+            <h2 class="section-title">Hobbies</h2>
+            <div class="hobbies-list">
+                <div class="hobby-item">
+                    <div class="hobby-icon">
+                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                            <path d="M12 19l7-7 3 3-7 7-3-3z"></path>
+                            <path d="M18 13l-1.5-7.5L2 2l3.5 14.5L13 18l5-5z"></path>
+                            <path d="M2 2l7.586 7.586"></path>
+                            <circle cx="11" cy="11" r="2"></circle>
+                        </svg>
+                    </div>
+                    <p>Writing</p>
+                </div>
+                <div class="hobby-item">
+                    <div class="hobby-icon">
+                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                            <path d="M6 3h12l1 16-7-3-7 3z"></path>
+                            <path d="M12 7c-1.1 0-2 .9-2 2s.9 2 2 2 2-.9 2-2-.9-2-2-2z"></path>
+                            <path d="M12 11v7"></path>
+                            <path d="M8 15h8"></path>
+                        </svg>
+                    </div>
+                    <p>Playing Cricket</p>
+                </div>
+                <div class="hobby-item">
+                    <div class="hobby-icon">
+                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                            <polyline points="16 18 22 12 16 6"></polyline>
+                            <polyline points="8 6 2 12 8 18"></polyline>
+                            <line x1="12" y1="2" x2="12" y2="22"></line>
+                        </svg>
+                    </div>
+                    <p>Coding</p>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <section class="social-profiles">
+        <div class="container">
+            <h2 class="section-title">Connect With Me</h2>
+            <div class="social-container">
+                <div class="social-card">
+                    <div class="social-logo">
+                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                            <path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"></path>
+                            <rect x="2" y="9" width="4" height="12"></rect>
+                            <circle cx="4" cy="4" r="2"></circle>
+                        </svg>
+                    </div>
+                    <h3>LinkedIn</h3>
+                    <p>Connect with me professionally and stay updated with my career journey</p>
+                    <a href="https://www.linkedin.com/in/praphullverma/" target="_blank" class="social-button">Visit Profile</a>
+                </div>
+                <div class="social-card">
+                    <div class="social-logo">
+                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                            <path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22"></path>
+                        </svg>
+                    </div>
+                    <h3>GitHub</h3>
+                    <p>Check out my coding projects and contributions to open source</p>
+                    <a href="https://github.com/praphull-verma" target="_blank" class="social-button">View Projects</a>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <footer>
+        <div class="container">
+            <p>&copy; 2025 Praphull. All rights reserved.</p>
+            <div class="social-links">
+                <a href="https://linkedin.com" target="_blank"><i class="fab fa-linkedin"></i></a>
+                <a href="https://github.com/praphull-verma" target="_blank"><i class="fab fa-github"></i></a>
+                <a href="mailto:thisispraphullverma@gmail.com"><i class="fas fa-envelope"></i></a>
+            </div>
+        </div>
+    </footer>
+</body>
+</html>
